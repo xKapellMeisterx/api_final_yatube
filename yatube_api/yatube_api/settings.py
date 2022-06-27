@@ -17,8 +17,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'djoser',
     'django_filters',
+    'djoser',
     'api',
     'posts',
 ]
@@ -102,3 +102,5 @@ SIMPLE_JWT = {
    'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
    'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+EMPTY_VALUE_DISPLAY = '-пусто-'

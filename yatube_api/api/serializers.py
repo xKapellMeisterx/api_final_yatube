@@ -47,7 +47,7 @@ class FollowSerializer(serializers.ModelSerializer):
     def validate_following(self, following):
         if self.context.get('request').user == following:
             raise serializers.ValidationError
-        return
+        return following
 
     class Meta:
         fields = '__all__'

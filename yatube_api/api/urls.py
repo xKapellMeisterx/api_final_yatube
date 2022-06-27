@@ -1,7 +1,5 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from rest_framework.authtoken import views
-
 from .views import CommentViewSet, GroupViewSet, PostViewSet, FollowViewSet
 
 v1_router = DefaultRouter()
@@ -19,6 +17,7 @@ v1_router.register(
 )
 
 urlpatterns = [
-    path('v1/api-token-auth/', views.obtain_auth_token),
-    path('v1/', include(v1_router.urls)),
+    path('api/v1/', include(v1_router.urls)),
+    path('api/v1/', include('djoser.urls')),
+    path('api/v1/', include('djoser.urls.jwt')),
 ]
