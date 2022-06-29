@@ -1,9 +1,8 @@
 from django.contrib.auth import get_user_model
+from posts.models import Comment, Follow, Group, Post
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
 from rest_framework.validators import UniqueTogetherValidator
-
-from posts.models import Comment, Post, Group, Follow
 
 User = get_user_model()
 
@@ -46,7 +45,9 @@ class FollowSerializer(serializers.ModelSerializer):
 
     def validate_following(self, following):
         if self.context.get('request').user == following:
-            raise serializers.ValidationError
+            raise serializers.ValidationError(
+                'Вы не можете подписываться сами на себя.'
+            )
         return following
 
     class Meta:
