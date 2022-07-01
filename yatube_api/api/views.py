@@ -17,7 +17,7 @@ from .serializers import (CommentSerializer, FollowSerializer, GroupSerializer,
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = (OwnerOrReadOnly, IsAuthenticatedOrReadOnly)
+    permission_classes = (OwnerOrReadOnly, )
     pagination_class = LimitOffsetPagination
 
     def perform_create(self, serializer):
