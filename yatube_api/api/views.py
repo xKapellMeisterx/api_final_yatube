@@ -6,8 +6,7 @@ from posts.models import Follow, Group, Post
 from rest_framework import viewsets, mixins
 from rest_framework.filters import SearchFilter
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.permissions import (IsAuthenticated,
-                                        IsAuthenticatedOrReadOnly)
+from rest_framework.permissions import IsAuthenticated
 
 from .permissions import OwnerOrReadOnly
 from .serializers import (CommentSerializer, FollowSerializer, GroupSerializer,
